@@ -2,40 +2,27 @@
  *@author IT姑凉
  */
 import React , { Component } from 'react';
-import {Text,View,StyleSheet} from 'react-native';
-
-class BlinkComponent extends Component{
-	constructor(props){
-		super(props);
-		this.state={showText:true};
-
-		// 每1000毫秒对showText状态做一次取反操作
-	    setInterval(() => {
-	      this.setState(previousState => {
-	        return { showText: !previousState.showText };
-	      });
-	    }, 1000);
-    }
-
-    render(){
-    	// 根据当前showText的值决定是否显示text内容
-	    let display = this.state.showText ? this.props.text : ' ';
-	    return (
-	      <Text style={styles.red}>{display}</Text>
-	    );
-    }
-}
-
-
+import {Text,View,StyleSheet,Button,Alert} from 'react-native';
+import HeaderBar from '../components/HeaderBar';
 
 export default class HomeView extends Component {
+  static navigationOptions = {
+    title: '首页'//对页面的配置
+  };
+
+  videoAction() {
+        let { goBack, navigate } = this.props.navigation;
+        navigate( 'VideoView' );
+  }
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View>
-        <BlinkComponent text='I love to blink'/>
-        <BlinkComponent text='Yes blinking is so great' />
-        <BlinkComponent text='Why did they ever take this out of HTML' />
-        <BlinkComponent text='Look at me look at me look at me' />
+        <Button
+          onPress={(_el) => this.videoAction(_el)}
+          title="跳转到video demo"
+          accessibilityLabel="See an informative alert"
+        />
       </View>
     );
   }

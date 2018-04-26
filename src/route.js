@@ -14,6 +14,7 @@ import LiveView from './view/LiveView';
 import RankView from './view/RankView';
 import FindView from './view/FindView';
 import MineView from './view/MineView';
+import VideoView from './view/VideoView';
 
 // 注册tabs
 const AppTabNavigator = TabNavigator({
@@ -29,6 +30,7 @@ const AppTabNavigator = TabNavigator({
     Live: {
         screen: LiveView,
         navigationOptions: {
+            header:null,
             tabBarLabel: '直播',
             tabBarIcon: ({tintColor}) => {
               return <Entypo name="mic" size={25} color={tintColor} />;
@@ -38,6 +40,7 @@ const AppTabNavigator = TabNavigator({
     Rank: {
         screen: RankView,
         navigationOptions: {
+            header:null,
             tabBarLabel: '排行榜',
             tabBarIcon: ({tintColor}) => {
               return <Entypo name="bar-graph" size={25} color={tintColor} />;
@@ -47,6 +50,7 @@ const AppTabNavigator = TabNavigator({
     Find: {
         screen: FindView,
         navigationOptions: {
+            header:null,
             tabBarLabel: '发现',
             tabBarIcon: ({tintColor}) => {
               return <Entypo name="direction" size={25} color={tintColor} />;
@@ -56,6 +60,7 @@ const AppTabNavigator = TabNavigator({
     Mine: {
         screen: MineView,
         navigationOptions: {
+            header:null,
             tabBarLabel: '我的',
             tabBarIcon: ({tintColor}) => {
               return <Entypo name="user" size={25} color={tintColor} />;
@@ -95,11 +100,13 @@ const AppTabNavigator = TabNavigator({
 
 export const AppNavigator = StackNavigator(
     {
-        Home        : { screen: AppTabNavigator, navigationOptions: { header: null }},
-        Mine        : { screen: MineView, navigationOptions: { header: null }},
+        HomeView: { screen: AppTabNavigator},
+        VideoView: { screen: VideoView,navigationOptions: { 
+            headerBackTitle: '返回', 
+        }},
     },
-    {
+    {   
         headerMode        : 'screen',
-        initialRouteName  : 'Home',
+        initialRouteName  : 'HomeView',
     }
 );
