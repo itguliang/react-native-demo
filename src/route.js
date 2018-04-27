@@ -12,8 +12,8 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import HomeView from './view/HomeView';
 import LiveView from './view/LiveView';
 import RankView from './view/RankView';
-import FindView from './view/FindView';
 import MineView from './view/MineView';
+import AudioView from './view/AudioView';
 import VideoView from './view/VideoView';
 
 // 注册tabs
@@ -27,36 +27,26 @@ const AppTabNavigator = TabNavigator({
             },
         },
     },
-    Live: {
-        screen: LiveView,
-        navigationOptions: {
-            header:null,
-            tabBarLabel: '直播',
-            tabBarIcon: ({tintColor}) => {
-              return <Entypo name="mic" size={25} color={tintColor} />;
-            },
-        }
-    },
-    Rank: {
-        screen: RankView,
-        navigationOptions: {
-            header:null,
-            tabBarLabel: '排行榜',
-            tabBarIcon: ({tintColor}) => {
-              return <Entypo name="bar-graph" size={25} color={tintColor} />;
-            },
-        }
-    },
-    Find: {
-        screen: FindView,
-        navigationOptions: {
-            header:null,
-            tabBarLabel: '发现',
-            tabBarIcon: ({tintColor}) => {
-              return <Entypo name="direction" size={25} color={tintColor} />;
-            },
-        }
-    },
+    // Live: {
+    //     screen: LiveView,
+    //     navigationOptions: {
+    //         header:null,
+    //         tabBarLabel: '直播',
+    //         tabBarIcon: ({tintColor}) => {
+    //           return <Entypo name="mic" size={25} color={tintColor} />;
+    //         },
+    //     }
+    // },
+    // Rank: {
+    //     screen: RankView,
+    //     navigationOptions: {
+    //         header:null,
+    //         tabBarLabel: '排行榜',
+    //         tabBarIcon: ({tintColor}) => {
+    //           return <Entypo name="bar-graph" size={25} color={tintColor} />;
+    //         },
+    //     }
+    // },
     Mine: {
         screen: MineView,
         navigationOptions: {
@@ -101,6 +91,9 @@ const AppTabNavigator = TabNavigator({
 export const AppNavigator = StackNavigator(
     {
         HomeView: { screen: AppTabNavigator},
+        AudioView: { screen: AudioView,navigationOptions: { 
+            headerBackTitle: '返回', 
+        }},
         VideoView: { screen: VideoView,navigationOptions: { 
             headerBackTitle: '返回', 
         }},

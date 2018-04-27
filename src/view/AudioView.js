@@ -5,12 +5,11 @@ import React , { Component } from 'react';
 import {Text,View,StyleSheet} from 'react-native';
 import HeaderBar from '../components/HeaderBar';
 
-export default class FindView extends Component {
+export default class AudioView extends Component {
   render() {
     return (
       <View>
-        <HeaderBar  title="发现"/>
-        <Text>发现</Text>
+        <Text>音频</Text>
       </View>
     );
   }
