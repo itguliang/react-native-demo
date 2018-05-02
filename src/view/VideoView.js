@@ -83,7 +83,7 @@ export default class VideoView extends Component {
   componentWillUnmount() {  
     this.timerClear(); 
   }
-
+  
   onLoadStart() {
     console.log('视频开始加载');
   }
@@ -183,21 +183,24 @@ export default class VideoView extends Component {
   // 切换全屏
   switchFullScreen() {
     console.log('切换全屏');
+    this.player.presentFullscreenPlayer();
   }
   
   render() {
     return (
       <View style={styles.container}>
-
-        {this.state.isLoading ? (
+        <View style={{ width: this.state.videoWidth, height: this.state.videoHeight }}>
+          {this.state.isLoading ? (
                      <ActivityIndicator style={[styles.loading,{ width: this.state.videoWidth, height: this.state.videoHeight }]} size="large"/>
                  ) : null}
-
-        <View style={{ width: this.state.videoWidth, height: this.state.videoHeight }}>
           <Video
              ref={(ref) => this.player = ref}
              source={require('../video.mp4')}
              //source={require('./music.mp3')} // 可以播放音频
+
+             // uri to an image to display until the video plays
+             poster=""
+             
              rate={this.state.isPlaying?1:0}                     // 控制暂停/播放，0 代表暂停paused, 1代表播放normal.
              volume={1.0}                   // 声音的放声音的放大倍数大倍数，0 为静音  ，1 为正常音量 ，更大的数字表示放大的倍数
              muted={false}                  // true代表静音，默认为false.
@@ -254,7 +257,9 @@ export default class VideoView extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#222',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   backgroundVideo: {
     position: 'absolute',
@@ -267,7 +272,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     left: 0,
-    zIndex:2,
+    zIndex:1,
   },
   control: {
     flexDirection: 'row',

@@ -24,16 +24,19 @@ export default class HomeView extends Component {
     const { navigate } = this.props.navigation;
     return (
       <View>
+
         <Button
           onPress={() => this.audioAction()}
           title="audio demo"
           accessibilityLabel="See an informative alert"
         />
+
         <Button
           onPress={() => this.videoAction()}
           title="video demo"
           accessibilityLabel="See an informative alert"
         />
+        
       </View>
     );
   }
