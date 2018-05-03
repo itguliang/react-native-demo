@@ -5,8 +5,7 @@
 - [x] [底部Tab导航](https://zhuanlan.zhihu.com/p/35648633)
 - [x] 视频播放(播放暂停+进度条+有效播放时间计时+loading效果)
 - [ ] 视频播放(切换全屏)
-- [x] 音频播放
-- [ ] 音频播放动画
+- [x] 音频播放+动画（仿照https://github.com/pheromone/react-native-videoDemo）
 - [ ] IM UI Demo
  
 ### 备注
