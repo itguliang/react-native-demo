@@ -10,11 +10,11 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 import Entypo from 'react-native-vector-icons/Entypo';
 
 import HomeView from './view/HomeView';
-import LiveView from './view/LiveView';
-import RankView from './view/RankView';
 import MineView from './view/MineView';
 import AudioView from './view/AudioView';
 import VideoView from './view/VideoView';
+import AnimatedView from './view/AnimatedView';
+
 
 // 注册tabs
 const AppTabNavigator = TabNavigator({
@@ -95,6 +95,9 @@ export const AppNavigator = StackNavigator(
             headerBackTitle: '返回', 
         }},
         VideoView: { screen: VideoView,navigationOptions: { 
+            headerBackTitle: '返回', 
+        }},
+        AnimatedView: { screen: AnimatedView,navigationOptions: { 
             headerBackTitle: '返回', 
         }},
     },

@@ -59,7 +59,46 @@ export default class AudioView extends Component {
     this.countTime=0;
     this.countTimer=null;
     this.timer=null;
+
+    this.isGoing = true; //为真旋转
+    this.myAnimate = Animated.timing(this.state.imgRotate, {
+      toValue: 1,
+      duration: 4000,
+      easing: Easing.inOut(Easing.linear),
+    });
   }
+
+  imgMoving = () => {
+    if (this.isGoing) {
+      this.state.imgRotate.setValue(0);
+        this.myAnimate.start(() => {
+                this.imgMoving()
+        })
+    }
+  };
+
+  imgStopMoving = () => {
+      this.isGoing = !this.isGoing;
+        if (this.isGoing) {
+            this.myAnimate.start(() => {
+                this.myAnimate = Animated.timing(this.state.imgRotate, {
+                    toValue: 1,
+                    duration: 4000,
+                    easing: Easing.inOut(Easing.linear),
+                });
+                this.imgMoving()
+            })
+        } else {
+            this.state.imgRotate.stopAnimation((oneTimeRotate) => {
+                //计算角度比例
+                this.myAnimate = Animated.timing(this.state.imgRotate, {
+                    toValue: 1,
+                    easing: Easing.inOut(Easing.linear),
+                });
+            });
+
+        }
+  };
 
   timerStart() {
     console.log('开始计时');
@@ -70,7 +109,7 @@ export default class AudioView extends Component {
     this.timer=setInterval(()=>{
       this.totalTime+=3000;
       this.countTime=0;
-      console.log('模拟间隔保存---每隔3秒自动保存数据');
+      console.log('模拟--每3秒自动保存数据-'+this.totalTime+'ms');
     },3000);
     this.setState({
       isTimerStarted: true,
@@ -125,7 +164,9 @@ export default class AudioView extends Component {
       });
       if(!this.state.isTimerStarted){
         this.timerStart();
+        this.imgMoving()
       }
+
     }
   }
 
@@ -150,6 +191,7 @@ export default class AudioView extends Component {
   }
 
   onPressPlayButton() {
+    this.imgStopMoving();
     let isPlay = !this.state.isPlaying;
     if(this.state.isEnd){
       this.totalTime=0;
@@ -196,11 +238,9 @@ export default class AudioView extends Component {
       <View style={styles.container}>
         <View style={[styles.audio,{ width: this.state.audioWidth, height: this.state.audioHeight}]}>
           
-          /*胶片光盘*/
           <Image source={require('../images/music_disc.png')} 
                  style={{width:230,height:230,alignSelf:'center'}}/>
 
-          /*旋转小图*/
           <Animated.Image  ref = 'myAnimate'
                 style={{width:150,height:150,marginTop: -190,
                 	    alignSelf:'center',borderRadius: 150*0.5,
@@ -274,7 +314,6 @@ const styles = StyleSheet.create({
   },
   audio:{
     marginTop: -80,
-    // backgroundColor: 'red',
   },
   control: {
     flexDirection: 'row',
