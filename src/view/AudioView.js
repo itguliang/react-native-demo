@@ -63,14 +63,14 @@ export default class AudioView extends Component {
     this.isGoing = true; //为真旋转
     this.myAnimate = Animated.timing(this.state.imgRotate, {
       toValue: 1,
-      duration: 4000,
+      duration: 3000,
       easing: Easing.inOut(Easing.linear),
     });
   }
 
   imgMoving = () => {
     if (this.isGoing) {
-      this.state.imgRotate.setValue(0);
+        this.state.imgRotate.setValue(0);
         this.myAnimate.start(() => {
                 this.imgMoving()
         })
@@ -81,22 +81,10 @@ export default class AudioView extends Component {
       this.isGoing = !this.isGoing;
         if (this.isGoing) {
             this.myAnimate.start(() => {
-                this.myAnimate = Animated.timing(this.state.imgRotate, {
-                    toValue: 1,
-                    duration: 4000,
-                    easing: Easing.inOut(Easing.linear),
-                });
                 this.imgMoving()
             })
         } else {
-            this.state.imgRotate.stopAnimation((oneTimeRotate) => {
-                //计算角度比例
-                this.myAnimate = Animated.timing(this.state.imgRotate, {
-                    toValue: 1,
-                    easing: Easing.inOut(Easing.linear),
-                });
-            });
-
+            this.state.imgRotate.stopAnimation((oneTimeRotate) => {});
         }
   };
 
@@ -152,6 +140,7 @@ export default class AudioView extends Component {
     this.setState({
       duration: data.duration,
     });
+    this.imgMoving()
   }
   onProgressChanged(data) {
     //console.log('音频进度更新:'+data.currentTime);
@@ -164,7 +153,6 @@ export default class AudioView extends Component {
       });
       if(!this.state.isTimerStarted){
         this.timerStart();
-        this.imgMoving()
       }
 
     }
