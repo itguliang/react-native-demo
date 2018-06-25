@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { INCREASE, DECREASE, RESET} from '../constants/actionsTypes';
+import { INCREASE, DECREASE, RESET} from '../constants/counterActionsTypes';
 
 // 原始默认state
 const defaultState = {

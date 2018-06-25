@@ -1,4 +1,4 @@
-import { INCREASE, DECREASE, RESET } from '../constants/actionsTypes';
+import { INCREASE, DECREASE, RESET } from '../constants/counterActionsTypes';
 
 const increase = () => ({ type: INCREASE });
 const decrease = () => ({ type: DECREASE });

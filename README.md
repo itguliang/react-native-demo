@@ -7,8 +7,8 @@
 v0.1:
 - [x] 底部Tab导航
 - [x] 视频播放(播放暂停+进度条+有效播放时间计时+loading效果+切换全屏)
-- [x] 音频播放+动画（仿照https://github.com/pheromone/react-native-videoDemo）
-- [x] 计数器加减demo 添加 redux
+- [x] 音频播放+动画
+- [x] redux实现计数器加减demo
 
 v0.2:
 - [ ] IM UI Demo
@@ -16,7 +16,7 @@ v0.2:
 
 ### 备注
 
-* [图标react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)---[search for an icon](https://oblador.github.io/react-native-vector-icons/)
+* 图标[react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)---[search for an icon](https://oblador.github.io/react-native-vector-icons/)
 * [react-native-video](https://github.com/react-native-community/react-native-video) 
 * [定时器](https://reactnative.cn/docs/0.51/timers.html) 
 * [ActivityIndicator-loading](https://reactnative.cn/docs/0.37/activityindicator.html)

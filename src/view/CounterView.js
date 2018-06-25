@@ -54,21 +54,21 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start'
   },
   counter: {
-    marginTop:20,
+    marginTop:40,
     color:'blue',
-    fontSize:20,
+    fontSize:30,
   },
   reset: {
-    marginTop:10,
-    backgroundColor: '#ccc',
+    marginTop:20,
+    backgroundColor: 'yellow',
   },
   start: {
-    marginTop:10,
-    backgroundColor: '#ccc',
+    marginTop:20,
+    backgroundColor: 'yellow',
   },
   stop: {
-    marginTop:10,
-    backgroundColor: '#ccc',
+    marginTop:20,
+    backgroundColor: 'yellow',
   },
 })
 const mapStateToProps = state => ({
