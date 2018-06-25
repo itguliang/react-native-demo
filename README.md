@@ -8,6 +8,7 @@
 - [x] 视频播放(播放暂停+进度条+有效播放时间计时+loading效果)
 - [ ] 视频播放(切换全屏)
 - [x] 音频播放+动画（仿照https://github.com/pheromone/react-native-videoDemo）
+- [x] 计数器加减demo 添加 redux
 - [ ] IM UI Demo
  
 ### 备注
