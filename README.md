@@ -4,13 +4,16 @@
 
 ### 功能
 
+v0.1:
 - [x] 底部Tab导航
-- [x] 视频播放(播放暂停+进度条+有效播放时间计时+loading效果)
-- [ ] 视频播放(切换全屏)
+- [x] 视频播放(播放暂停+进度条+有效播放时间计时+loading效果+切换全屏)
 - [x] 音频播放+动画（仿照https://github.com/pheromone/react-native-videoDemo）
 - [x] 计数器加减demo 添加 redux
+
+v0.2:
 - [ ] IM UI Demo
- 
+- [ ] redux-saga
+
 ### 备注
 
 * [图标react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)---[search for an icon](https://oblador.github.io/react-native-vector-icons/)
