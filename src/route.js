@@ -14,6 +14,7 @@ import MineView from './view/MineView';
 import AudioView from './view/AudioView';
 import VideoView from './view/VideoView';
 import AnimatedView from './view/AnimatedView';
+import CounterView from './view/CounterView';
 
 
 // 注册tabs
@@ -98,6 +99,9 @@ export const AppNavigator = StackNavigator(
             headerBackTitle: '返回', 
         }},
         AnimatedView: { screen: AnimatedView,navigationOptions: { 
+            headerBackTitle: '返回', 
+        }},
+        CounterView: { screen: CounterView,navigationOptions: { 
             headerBackTitle: '返回', 
         }},
     },

@@ -19,11 +19,6 @@ export default class MineView extends Component {
 	    return (
 	      <View>
 	      	<HeaderBar  title="我的"/>
-	        <Button
-	          onPress={() => this.animatedAction()}
-	          title="Animated demo"
-	          accessibilityLabel="See an informative alert"
-	        />
 	      </View>
 	    );
 	 }

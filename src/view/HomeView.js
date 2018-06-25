@@ -19,6 +19,16 @@ export default class HomeView extends Component {
         let { goBack, navigate } = this.props.navigation;
         navigate( 'VideoView' );
   }
+
+  animatedAction() {
+        let { goBack, navigate } = this.props.navigation;
+        navigate( 'AnimatedView' );
+  }
+
+  counterAction() {
+        let { goBack, navigate } = this.props.navigation;
+        navigate( 'CounterView' );
+  }
   
   render() {
     const { navigate } = this.props.navigation;
@@ -36,6 +46,17 @@ export default class HomeView extends Component {
           title="video demo"
           accessibilityLabel="See an informative alert"
         />
+
+        <Button
+            onPress={() => this.animatedAction()}
+            title="Animated demo"
+            accessibilityLabel="See an informative alert"
+          />
+
+        <Button
+            onPress={() => this.counterAction()}
+            title="redux counter demo"
+          />
         
       </View>
     );
