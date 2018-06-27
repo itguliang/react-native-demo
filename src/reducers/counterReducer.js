@@ -2,12 +2,12 @@ import { combineReducers } from 'redux';
 import { INCREASE, DECREASE, RESET} from '../constants/counterActionsTypes';
 
 // 原始默认state
-const defaultState = {
+const countDefaultState = {
   count: 5,
   factor: 1
 }
 
-function counter(state = defaultState, action) {
+export default function counter(state=countDefaultState, action) {
   switch (action.type) {
     case INCREASE:
       return { ...state, count: state.count + state.factor };
@@ -19,7 +19,3 @@ function counter(state = defaultState, action) {
       return state;
   }
 }
-
-export default combineReducers({
-    counter
-});

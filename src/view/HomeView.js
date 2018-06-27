@@ -29,6 +29,11 @@ export default class HomeView extends Component {
         let { goBack, navigate } = this.props.navigation;
         navigate( 'CounterView' );
   }
+
+  timerAction() {
+        let { goBack, navigate } = this.props.navigation;
+        navigate( 'TimerView' );
+  }
   
   render() {
     const { navigate } = this.props.navigation;
@@ -56,6 +61,11 @@ export default class HomeView extends Component {
         <Button
             onPress={() => this.counterAction()}
             title="redux counter demo"
+          />
+
+        <Button
+            onPress={() => this.timerAction()}
+            title="redux-saga timer demo"
           />
         
       </View>

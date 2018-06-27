@@ -1,17 +1,23 @@
 import { createStore, applyMiddleware, compose } from 'redux';
+import createSagaMiddleware, { END } from 'redux-saga';
 // import createLogger from 'redux-logger';
-import counterReducer from '../reducers/counterReducer';
+import allReducer from '../reducers/allReducer';
+import sagas from '../sagas/timerSagas';
 
 const configureStore = preloadedState => {
-    return createStore (
-        counterReducer,
+	const sagaMiddleware = createSagaMiddleware();
+	const store = createStore(
+        allReducer,
         preloadedState,
-        // compose (
-        //     applyMiddleware(createLogger())
-        // )
-    );
+        compose (
+            // applyMiddleware(sagaMiddleware, createLogger())
+            applyMiddleware(sagaMiddleware)
+        )
+    )
+    sagaMiddleware.run(sagas);
+    store.close = () => store.dispatch(END);
+    return store;
 }
 
 const store = configureStore();
-
 export default store;

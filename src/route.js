@@ -15,6 +15,7 @@ import AudioView from './view/AudioView';
 import VideoView from './view/VideoView';
 import AnimatedView from './view/AnimatedView';
 import CounterView from './view/CounterView';
+import TimerView from './view/TimerView';
 
 
 // 注册tabs
@@ -102,6 +103,9 @@ export const AppNavigator = StackNavigator(
             headerBackTitle: '返回', 
         }},
         CounterView: { screen: CounterView,navigationOptions: { 
+            headerBackTitle: '返回', 
+        }},
+        TimerView: { screen: TimerView,navigationOptions: { 
             headerBackTitle: '返回', 
         }},
     },
