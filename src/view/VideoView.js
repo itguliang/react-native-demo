@@ -196,7 +196,7 @@ export default class VideoView extends Component {
           <Video
              ref={(ref) => this.player = ref}
              source={require('../video.mp4')}
-             //source={require('./music.mp3')} // 可以播放音频
+             // source={require('./music.mp3')} // 可以播放音频
 
              // uri to an image to display until the video plays
              poster=""
